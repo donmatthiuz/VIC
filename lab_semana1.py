@@ -67,8 +67,11 @@ def hsv_segmentation(image):
     # Ejemplo: Si buscas verde, H está alrededor de 60 (en escala 0-179).
     
     # TODO: Definir lower_bound y upper_bound (np.array)
-    lower_bound = np.array([0, 0, 0]) 
-    upper_bound = np.array([0, 0, 0])
+    lower_bound = np.array([0, 0, 200])  # S = 0 permite blancos
+    upper_bound = np.array([179, 30, 255])
+    
+    # aislamos solo los blancos
+
     
     # Crear máscara
     mask = cv2.inRange(hsv, lower_bound, upper_bound)
