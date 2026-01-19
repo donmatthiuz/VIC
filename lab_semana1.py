@@ -34,7 +34,9 @@ def manual_contrast_brightness(image, alpha, beta):
     
     # TODO: Escribir código aquí
     processed_img = np.zeros_like(image) # Placeholder
-    return processed_img
+    image = image.astype(np.float32) / 255.0
+    processed_img = np.clip(alpha * image + beta/255.0, 0.0, 1.0) 
+    return (processed_img * 255).astype(np.uint8)
 
 def manual_gamma_correction(image, gamma):
     """
