@@ -47,8 +47,13 @@ def manual_gamma_correction(image, gamma):
     # Usar Look-Up Table (LUT) es una optimización común, pero aquí usa matemáticas directas en float.
     
     # TODO: Escribir código aquí
+    image = image.astype(np.float32) / 255.0
+    gama_power = np.power(image, gamma)
+    
     gamma_img = np.zeros_like(image) # Placeholder
-    return gamma_img
+    gamma_img = np.clip(gama_power, 0.0, 1.0) 
+    return (gamma_img * 255).astype(np.uint8)
+
 
 def hsv_segmentation(image):
     """
