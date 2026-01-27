@@ -3,14 +3,14 @@
 ## Experimento A: El efecto de Sigma (σ)
 
 **Imágenes de referencia:**
-![Experimento A](./outputs/experimento_A_sigma.png)
+[Experimento A](./outputs/experimento_A_sigma.png)
 
 ### 1. Generación de versiones (Resultados)
 Se generaron las detecciones de bordes variando el suavizado Gaussiano sobre una imagen con ruido tipo "Sal y Pimienta".
 * **Imagen Original:** 
-![Original](./outputs/A_original.png)
+[Original](./outputs/A_original.png)
 * **Imagen con Ruido:** 
-![Ruido](./outputs/A_con_ruido.png)
+[Ruido](./outputs/A_con_ruido.png)
 
 ### 2. Análisis de Resultados
 
@@ -19,13 +19,13 @@ Se generaron las detecciones de bordes variando el suavizado Gaussiano sobre una
     * La ubicación precisa del borde se vuelve una mancha gruesa, reduciendo la resolución espacial.
     * Como se observa en la imagen las grietas del suelo casi desaparecen, dejando solo sombras vagas.
 
-![Borde sigma5](./outputs/A_bordes_sigma5.png )
+[Borde sigma5](./outputs/A_bordes_sigma5.png )
 
 * **¿Qué pasa con la textura del suelo cuando no hay suavizado?**
     * El detector de bordes (Sobel) es un filtro de paso alto, por lo que amplifica drásticamente el ruido de alta frecuencia.
     * Como se ve en la imagen cada grano de "sal y pimienta" y la textura rugosa del asfalto se detectan erróneamente como bordes, haciendo la imagen inútil para la navegación.
 
-![Bordes sin suavizado](./outputs/A_bordes_sin_suavizado.png )
+[Bordes sin suavizado](./outputs/A_bordes_sin_suavizado.png )
 
 * **Selección de Ingeniería (Pallets vs. Grietas):**
     * **Elección:** Elegiría el filtro con **Gaussiano σ = 5** (o incluso mayor).
@@ -36,8 +36,8 @@ Se generaron las detecciones de bordes variando el suavizado Gaussiano sobre una
 ## Experimento B: Histéresis Manual vs. Canny
 
 **Imágenes de referencia:**
-![Experimento B](./outputs/experimento_B_histeresis.png)
-![Comparación](./outputs/experimento_B_comparacion.png)
+[Experimento B](./outputs/experimento_B_histeresis.png)
+[Comparación](./outputs/experimento_B_comparacion.png)
 
 ### 1. Búsqueda del Umbral Único (T)
 * Se intentó aislar los bordes usando umbralización simple.
