@@ -69,6 +69,38 @@ def generar_gaussiano(tamano, sigma):
 
 
 
+
+def detectar_bordes_sobel(imagen):
+    img = cv2.imread(imagen)
+    if img is None:
+        print("Error: No se encontró la imagen.")
+        return
+    
+    gx_kernel = np.array([
+        [-1, 0, 1],
+        [-2, 0, 2],
+        [-1, 0, 1]
+    ], dtype=np.float32)
+    
+    gy_kernel = np.array([
+        [-1, -2, -1],
+        [0, 0, 0],
+        [1, 2, 1]
+    ], dtype=np.float32)
+    Gx = mi_convolucion(img, gx_kernel)
+    Gy = mi_convolucion(img, gy_kernel)
+    
+    magnitud = np.sqrt(Gx**2 + Gy**2)
+
+    magnitud = magnitud / magnitud.max() * 255
+    magnitud = magnitud.astype(np.uint8)
+
+    direccion = np.arctan2(Gy, Gx)
+
+    return magnitud, direccion
+    
+    
+    
 def main():
     img = cv2.imread('sample.jpg')
 
@@ -90,9 +122,14 @@ def main():
     ## Resultado del gaussiano
     resultado_gaussiano = mi_convolucion(img, generar_gaussiano(15,5))
     show_img(resultado_gaussiano, "Gaussiano 2D",cmap='gray')
-
     
-        
+    
+    mag, theta = detectar_bordes_sobel("sample.jpg")
+
+    show_img(mag, "Magnitud Sobel", cmap="gray")
+    show_img(theta, "Dirección Sobel", cmap="gray")
+
+
     
     
 if __name__ == "__main__":
