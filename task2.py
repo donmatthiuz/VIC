@@ -50,6 +50,24 @@ def mi_convolucion(imagen, kernel, padding_type='reflect'):
 
     return salida
 
+def generar_gaussiano(tamano, sigma):
+    if tamano % 2 == 0:
+        raise ValueError("El tamaño del kernel debe ser impar")
+
+    k = tamano // 2
+
+    x = np.arange(-k, k + 1)
+    y = np.arange(-k, k + 1)
+    X, Y = np.meshgrid(x, y)
+
+    kernel = (1 / (2 * np.pi * sigma**2)) * \
+             np.exp(-(X**2 + Y**2) / (2 * sigma**2))
+
+    kernel /= np.sum(kernel)
+
+    return kernel.astype(np.float32)
+
+
 
 def main():
     img = cv2.imread('sample.jpg')
@@ -67,7 +85,13 @@ def main():
     resultado = mi_convolucion(img, kernel)
 
     show_img(img, "Imagen original")
-    show_img(resultado, "Convolución", cmap='gray')
+    show_img(resultado, "Convolución de Prueba", cmap='gray')
+    
+    ## Resultado del gaussiano
+    resultado_gaussiano = mi_convolucion(img, generar_gaussiano(15,5))
+    show_img(resultado_gaussiano, "Gaussiano 2D",cmap='gray')
+
+    
         
     
     
