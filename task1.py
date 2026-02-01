@@ -16,9 +16,12 @@ rows, cols = img.shape
 crow, ccol = rows//2, cols//2
 mask = np.ones((rows, cols), np.float32)
 
-peaks = [(crow-50, ccol-50), (crow+50, ccol+50), (crow-50, ccol+50), (crow+50, ccol-50)]
+dist = 10 
+peaks = [(crow-dist, ccol-dist), (crow+dist, ccol+dist), 
+         (crow-dist, ccol+dist), (crow+dist, ccol-dist)]
+
 for peak in peaks:
-    cv2.circle(mask, (peak[1], peak[0]), 10, 0, -1)
+    cv2.circle(mask, (peak[1], peak[0]), 5, 0, -1)
     plt.subplot(133).plot(peak[1], peak[0], 'rx', markersize=10)
 
 fshift_filtered = fshift * mask
