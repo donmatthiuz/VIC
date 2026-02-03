@@ -87,13 +87,26 @@ def main():
     
     # Carga de imagen a binaria
     img_gray = cv2.imread('fingerprint_noisy.png', cv2.IMREAD_GRAYSCALE)
-    show_img(img_gray, "Imagen en escala de grises", cmap="gray")
     _, img_binary = cv2.threshold(
         img_gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU
     )
-    dilatada = erosion(img_binary, 3)
+    ## Para este tipo de imagenes lo mejor es la de apertura abre los espacios y quita el ruido salt
 
-    show_img(dilatada, "Imagen dilatada", cmap="gray")
+    erosionada = erosion(img_binary)
+    dilatada = dilatacion(erosionada)
+
+    ## hacemos cierre
+
+    dilatada2 = dilatacion(dilatada)
+    erosion2 = erosion(dilatada2)
+
+
+    plt.figure(figsize=(12,4))
+    plt.subplot(131), plt.imshow(img_gray, cmap='gray'), plt.title('Imagen Original')
+    plt.subplot(132), plt.imshow(dilatada, cmap='gray'), plt.title('Primera Operacion')
+    plt.subplot(133), plt.imshow(erosion2, cmap='gray'), plt.title('Imagen Final')
+    plt.show()
+
     
 
 if __name__ == "__main__":
