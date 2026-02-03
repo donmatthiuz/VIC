@@ -51,7 +51,7 @@ def erosion(img, nivel_erosion=3):
 
     
 
-def dilatation(img, nivel_dilatacion=3):
+def dilatacion(img, nivel_dilatacion=3):
     nivel_dilatacion = 3 if nivel_dilatacion < 3 else nivel_dilatacion
 
     ## creamos el kernel en base al nivel de dilatacion
