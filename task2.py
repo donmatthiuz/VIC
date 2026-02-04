@@ -106,6 +106,22 @@ def main():
     plt.subplot(132), plt.imshow(dilatada, cmap='gray'), plt.title('Primera Operacion')
     plt.subplot(133), plt.imshow(erosion2, cmap='gray'), plt.title('Imagen Final')
     plt.show()
+    
+    
+    ## orden invero
+    dilatada2 = dilatacion(img_binary)
+    erosion2 = erosion(dilatada2)
+    
+    erosionada = erosion(erosion2)
+    dilatada = dilatacion(erosionada)
+
+    plt.figure(figsize=(12,4))
+    plt.subplot(131), plt.imshow(img_gray, cmap='gray'), plt.title('Imagen Original')
+    plt.subplot(132), plt.imshow(erosion2, cmap='gray'), plt.title('Primera Operacion')
+    plt.subplot(133), plt.imshow(dilatada, cmap='gray'), plt.title('Imagen Final')
+    plt.show()
+
+    
 
     
 
