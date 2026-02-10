@@ -60,8 +60,8 @@ def SIFT_pipeline(frontal, side):
 
 
 def main():
-    frontal = cv.imread('./data/close1.jpeg', cv.IMREAD_GRAYSCALE)
-    side = cv.imread('./data/far1.jpeg', cv.IMREAD_GRAYSCALE)
+    frontal = cv.imread('./data/close2.jpeg', cv.IMREAD_GRAYSCALE)
+    side = cv.imread('./data/far2.jpeg', cv.IMREAD_GRAYSCALE)
 
     matched_sift = SIFT_pipeline(frontal, side)
     matched_orb = ORB_pipeline(frontal, side)
