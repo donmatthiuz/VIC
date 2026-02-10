@@ -61,6 +61,7 @@ Según el criterio de Harris, la clasificación se basa en los eigenvalores:
 - Región Plana: $\lambda_1 \approx 0$ y $\lambda_2 \approx 0$ (ambos pequeños) $\rightarrow$ R $\approx$ 0
 
 #### Para M:
+
 Eigenvalores: $\lambda_1 \approx 123.09$, $\lambda_2 \approx 111.91$
 
 Respuesta de Harris: R = 11566
@@ -68,7 +69,9 @@ Respuesta de Harris: R = 11566
 Clasificación: esquina 
 
 Justificación: Ambos eigenvalores son grandes (>100) y similares entre sí ($\lambda_1/\lambda_2 \approx 1.10$). La respuesta R es positiva y muy grande. Esto indica variaciones significativas de intensidad en todas las direcciones, característico de una esquina donde convergen dos bordes.
+
 #### Para M':
+
 Eigenvalores: $\lambda_1 \approx 200.50$, $\lambda_2 \approx 0.50$
 
 Respuesta de Harris: R' = -1516.04
