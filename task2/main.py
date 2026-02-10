@@ -19,7 +19,30 @@ def show_img(img, title="Imagen", cmap=None):
     
 
 def ORB_pipeline(frontal, side):
-    pass
+    feat = cv.ORB_create(nfeatures=1500)
+    kpnt1, des1 = feat.detectAndCompute(frontal, None)
+    kpnt2, des2 = feat.detectAndCompute(side, None)
+
+    bf = cv.BFMatcher(cv.NORM_HAMMING, crossCheck=False)
+    matches = bf.knnMatch(des1, des2, k=2)
+    good = []
+   
+    
+    for m, n in matches:
+        if m.distance < 0.75 * n.distance:
+            good.append([m])
+
+    matched_image = cv.drawMatchesKnn(
+            frontal,
+            kpnt1,
+            side,
+            kpnt2,
+            good,
+            None,
+            flags=cv.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS
+        )
+    return matched_image
+
 
 def SIFT_pipeline(frontal, side):
     sift = cv.SIFT_create()
@@ -53,6 +76,7 @@ def main():
     side = cv.imread('./data/far1.jpeg', cv.IMREAD_GRAYSCALE)
 
     matched_sift = SIFT_pipeline(frontal, side)
+    matched_orb = ORB_pipeline(frontal, side)
 
     original_pair = np.hstack((frontal, side))
 
@@ -72,7 +96,7 @@ def main():
 
     # ORB (placeholder)
     plt.subplot(1, 3, 3)
-    plt.imshow(matched_sift)
+    plt.imshow(matched_orb)
     plt.title('ORB – (placeholder)')
     plt.axis('off')
 
