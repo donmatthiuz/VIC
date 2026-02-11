@@ -123,4 +123,26 @@ Justificación: Un eigenvalor es muy grande ($\lambda_1 \approx 200.50$) mientra
 respuesta en los milisegundos que mediste y la tasa de refresco requerida (60 FPS ≈ 16ms
 de presupuesto total).
 
-Viendo este escenario el que elegiriamos es ORB , ya que si vemos la cantidad de milisegundos que se tarda es de 44 ms, y tomando en cuenta que son 60 FPS o 16 ms entonces 
+    Viendo este escenario el que elegiriamos es ORB , ya que si vemos la cantidad de milisegundos que se tarda es de 15 siendo el solicitado de 16 ms , aun asi cabe recalcar que el que mejor desempeño tuvo fue SIFT, ya que para este el blur le favorece bastante, aun asi los matches como se pueden ver son iguales asi que se da por concluido que el mejor en el **producto A** es **ORB**.
+
+- ¿Cuál algoritmo elegirías para el Producto B (Inspección) y por qué? Analice la calidad
+    visual de los matches en los cambios de escala y rotación que probaste. ¿Falló ORB en
+    algún caso donde SIFT tuvo éxito?
+
+    Si de hecho **SIFT** seria el que se elegiria aqui, debido a que si se ve los matches tenemos 327 a diferencia de ORB que tiene 59, si bien ORB es bueno en velocidad en detección no lo es ya que SIFT, ya que es invariante a escala, rotacion y tamaño, lo que lo hace que en casos en donde tengan alta definicion y alto detalle sea mucho mejor. 
+
+- ¿Las conclusiones que estamos alcanzando son justas y generalizables? ¿Por qué? ¿Qué
+deberíamos considerar en futuras iteraciones?
+
+    Las conclusiones son que SIFT se usaria para el producto B ya que detecta mejor detalles y que ORB se usa para el producto A ya que es mas rapido. 
+    Debido a esto si son justas ya que se esta usando las caracteristicas de cada algoritmo, la rapidez de ORB y el ver detalles con SIFT, 
+
+    Aun asi no son generalizables ya que depende mucho de la resolucion , iluminación , movimiento y hardware que se tenga. 
+
+    Lo que se recomienda en futuras iteraciones es lo siguiente
+    
+    - Aumentar la muestras
+    - Evaluar desempeño en hardware
+    - Tener mas algoritmos
+    - Evaluar estabilidad entre frames
+    - Evaluar pros y contras entre velocidad, rendimiento , uso de recursos y presición
