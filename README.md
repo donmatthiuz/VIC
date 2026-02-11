@@ -120,7 +120,7 @@ Justificación: Un eigenvalor es muy grande ($\lambda_1 \approx 200.50$) mientra
 ### Analisis Critico
 
 - ¿Cuál algoritmo elegiría para el Producto A (Drone de Carreras) y por qué? Base su
-respuesta en los milisegundos que mediste y la tasa de refresco requerida (60 FPS ≈ 16ms
+respuesta en los milisegundos que mediste y la tasa de refresco requerida (60 FPS = 16ms
 de presupuesto total).
 
     Viendo este escenario el que elegiriamos es ORB , ya que si vemos la cantidad de milisegundos que se tarda es de 15 siendo el solicitado de 16 ms , aun asi cabe recalcar que el que mejor desempeño tuvo fue SIFT, ya que para este el blur le favorece bastante, aun asi los matches como se pueden ver son iguales asi que se da por concluido que el mejor en el **producto A** es **ORB**.
