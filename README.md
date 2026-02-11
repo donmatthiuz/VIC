@@ -95,7 +95,13 @@ Justificación: Un eigenvalor es muy grande ($\lambda_1 \approx 200.50$) mientra
 
 # Task 3
 
-![alt text](Figure_2.png)
+## Escenarios
+![alt text](productos.png)
+
+
+- Para el producto A se quito el 75% de los pixeles y se aplico un filtro gaussiano para simular lo borroso y baja calidad de las imagenes de los drones.
+
+- Para el producto B se le hizo un rescalado haciendola mas grande el 200% porque las imagenes de las grieta seran mas limpias y grandes. Ademas que la interpolación cubica mejoro la imagen dandole suavizado y mejor calidad.
 
 ## Resultados
 
