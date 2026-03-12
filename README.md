@@ -1,12 +1,16 @@
 # Laboratorio 6
 
-Como Ingeniero Principal (Lead AI Engineer) del proyecto AgriTech, usted debe justificar las decisiones
-arquitectónicas ante su equipo y sus clientes. Responda a los siguientes escenarios en su reporte (máximo
-1 página por respuesta), combinando la teoría matemática con el pragmatismo laboral.
+
+[Link al Repositorio](https://github.com/donmatthiuz/VIC/tree/lab6)
+
+
 
 
 ## Task 1
 
+Como Ingeniero Principal (Lead AI Engineer) del proyecto AgriTech, usted debe justificar las decisiones
+arquitectónicas ante su equipo y sus clientes. Responda a los siguientes escenarios en su reporte (máximo
+1 página por respuesta), combinando la teoría matemática con el pragmatismo laboral.
 
 ### 1
 
