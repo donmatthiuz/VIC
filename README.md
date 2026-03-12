@@ -20,7 +20,7 @@ hojas enfermas, deberíamos construir una red secuencial clásica (tipo VGG) per
 profundo siempre es mejor". Como líder técnico, explíquele argumentativamente por qué esta red
 fracasará estrepitosamente en el entrenamiento (mencionando el fenómeno de degradación y el
 desvanecimiento del gradiente). Luego, justifique cómo la adición estructural de las conexiones
-residuales (𝐹(𝑥) + 𝑥) de ResNet rescata el proyecto, haciendo viable entrenar redes ultra-profundas
+residuales $F(x)+x$ de ResNet rescata el proyecto, haciendo viable entrenar redes ultra-profundas
 sin colapsar.
 
 
